@@ -562,7 +562,7 @@ body { margin: 0; text-wrap: pretty; }
 .split-figure > .corner.tr { top: -8px; right: -8px; }
 .split-figure > .corner.bl { bottom: -8px; left: -8px; }
 .split-figure > .corner.br { bottom: -8px; right: -8px; }
-.split-figure image-slot { width: 100%; aspect-ratio: 1600 / 1187; } /* the bundled
+.split-figure image-slot, .split-figure > img { width: 100%; aspect-ratio: 1600 / 1187; object-fit: cover; display: block; } /* the bundled
    photograph's natural ratio pins the box, so a swapped image cover-crops
    into the same frame (cover framing is the component's own) */
 
@@ -764,7 +764,7 @@ body[data-baselines]::after {
       <p class="note">Operations run from a secured facility with 24/7 building security, dedicated loading and unloading zone, and secured storage for controlled products.</p>
     </div>
     <figure class="split-figure blueprint duotone">
-      <image-slot id="photo-operations" shape="rect" placeholder="Drop a facility or warehouse photo here" role="img" aria-label="Facility photograph inside a registration-marked frame"></image-slot>
+      <img src="assets/chemist.png" alt="Facility photograph inside a registration-marked frame" />
       <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
     </figure>
   </section>
