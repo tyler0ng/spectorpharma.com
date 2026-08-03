@@ -5,41 +5,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Spector Pharma Inc. — Specialty Pharmaceutical Importation & Distribution</title>
-<meta name="description" content="Spector Pharma Inc. — specialty pharmaceutical importation and distribution based in Kapitolyo, Pasig City, Metro Manila, Philippines. Secured facility with controlled-handling operations." />
-<meta name="robots" content="index, follow" />
-<link rel="canonical" href="https://spectorpharma.com/" />
-<link rel="icon" type="image/png" href="assets/spector-logo.png" />
-
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Spector Pharma Inc." />
-<meta property="og:title" content="Spector Pharma Inc." />
-<meta property="og:description" content="Specialty pharmaceutical importation and distribution. Kapitolyo, Pasig City, Metro Manila, Philippines." />
-<meta property="og:url" content="https://spectorpharma.com/" />
-<meta property="og:image" content="https://spectorpharma.com/uploads/spector-pharma-lockup-4k.png" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Spector Pharma Inc." />
-<meta name="twitter:description" content="Specialty pharmaceutical importation and distribution. Kapitolyo, Pasig City, Metro Manila." />
-<meta name="twitter:image" content="https://spectorpharma.com/uploads/spector-pharma-lockup-4k.png" />
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Spector Pharma Inc.",
-  "url": "https://spectorpharma.com",
-  "logo": "https://spectorpharma.com/uploads/spector-pharma-lockup-4k.png",
-  "email": "info@spectorpharma.com",
-  "description": "Specialty pharmaceutical importation and distribution based in Metro Manila, Philippines.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "The Praxedes Place 1, No. 5 East Capitol Drive corner Sta. Rosa St., Kapitolyo",
-    "addressLocality": "Pasig City",
-    "addressRegion": "Metro Manila",
-    "addressCountry": "PH"
-  }
-}
-</script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-72%20-66%20132%20132%22%20width%3D%22132%22%20height%3D%22132%22%3E%0A%20%20%3Ctitle%3ESpector%20Pharma%20mark%3C%2Ftitle%3E%0A%20%20%3Cg%20fill%3D%22none%22%20stroke%3D%22%232E63C4%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M-51.2%2C-9.0%20A52%2052%200%200%201%2051.2%2C9.0%20A52%2052%200%200%201%20-51.2%2C9.0%22%3E%3C%2Fpath%3E%0A%20%20%20%20%3Cpath%20d%3D%22M-35.5%2C-6.3%20A36%2036%200%200%201%20-6.3%2C-35.5%22%3E%3C%2Fpath%3E%0A%20%20%20%20%3Cpath%20d%3D%22M6.3%2C-35.5%20A36%2036%200%201%201%20-35.5%2C6.3%22%3E%3C%2Fpath%3E%0A%20%20%20%20%3Cpath%20d%3D%22M-17.3%2C-10%20A20%2020%200%201%201%20-17.3%2C10%22%3E%3C%2Fpath%3E%0A%20%20%20%20%3Cpath%20d%3D%22M-64%2C0%20L-26%2C0%22%3E%3C%2Fpath%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E" />
 <style>
 /* inlined: _ds/industry-.../styles.css */
 /* Industry — design-system tokens and component classes. This file is the source of truth for the system's look; retune it here and see readme.md. */
@@ -597,7 +563,7 @@ body { margin: 0; text-wrap: pretty; }
 .split-figure > .corner.tr { top: -8px; right: -8px; }
 .split-figure > .corner.bl { bottom: -8px; left: -8px; }
 .split-figure > .corner.br { bottom: -8px; right: -8px; }
-.split-figure image-slot, .split-figure > img { width: 100%; aspect-ratio: 1600 / 1187; object-fit: cover; display: block; } /* the bundled
+.split-figure image-slot { width: 100%; aspect-ratio: 1600 / 1187; } /* the bundled
    photograph's natural ratio pins the box, so a swapped image cover-crops
    into the same frame (cover framing is the component's own) */
 
@@ -799,7 +765,7 @@ body[data-baselines]::after {
       <p class="note">Operations run from a secured facility with 24/7 building security, dedicated loading and unloading zone, and secured storage for controlled products.</p>
     </div>
     <figure class="split-figure blueprint duotone">
-      <img src="assets/chemist.png" alt="Facility photograph inside a registration-marked frame" />
+      <image-slot id="photo-operations" shape="rect" placeholder="Drop a facility or warehouse photo here" role="img" aria-label="Facility photograph inside a registration-marked frame"></image-slot>
       <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
     </figure>
   </section>
