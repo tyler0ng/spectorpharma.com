@@ -361,7 +361,9 @@ h1,h2,h3{font-family:var(--font-heading);text-transform:none;margin:0}
 .js [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .js [data-reveal].is-in{opacity:1;transform:none}
 .js .ops-media[data-reveal]{opacity:1;transform:none}
-.js .ops-media .ops-figure{clip-path:inset(0 100% 0 0);transition:clip-path 1.3s var(--ease)}
+.js .ops-media .ops-figure{clip-path:inset(0 100% 0 0);transition:clip-path 1.4s var(--ease)}
+.js .ops-media .ops-figure img{opacity:.4;transition:opacity 1.4s var(--ease)}
+.js .ops-media.is-in .ops-figure img{opacity:1}
 .js .ops-media.is-in .ops-figure{clip-path:inset(0 0 0 0)}
 .js .focus-list li{opacity:0;transform:translateX(-14px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .js .is-in .focus-list li{opacity:1;transform:none}
@@ -375,9 +377,10 @@ h1,h2,h3{font-family:var(--font-heading);text-transform:none;margin:0}
 .molecule text{font-family:var(--font-heading);font-weight:500;font-size:15px;fill:var(--color-accent-700);text-anchor:middle;transition:opacity .35s var(--ease)}
 @media (max-width:960px){
   .molecule{display:none}
-  .hero{background:radial-gradient(70% 45% at 30% 88%,#1e3566 0%,var(--color-accent-900) 75%)}
-  .hero .container{grid-template-columns:1fr;min-height:0;gap:40px;padding-top:120px;padding-bottom:64px}
-  .hero-mark{justify-self:center;width:min(72%,340px)}
+  .hero{background:radial-gradient(60% 55% at 92% 48%,#1e3566 0%,var(--color-accent-900) 75%)}
+  .hero .container{position:relative;grid-template-columns:minmax(0,1fr);min-height:0;gap:0;padding-top:120px;padding-bottom:64px}
+  .hero-copy{position:relative;z-index:1;max-width:min(100%,520px)}
+  .hero-mark{position:absolute;z-index:0;top:0;bottom:0;right:calc(-1 * clamp(70px,22vw,160px));display:flex;align-items:center;width:clamp(280px,80vw,440px);max-width:none;pointer-events:none}
   .about .container,.ops .container,.contact .container{grid-template-columns:minmax(0,1fr)}
   .about-head{position:static}
   .site-footer .container{grid-template-columns:1fr}
@@ -468,7 +471,7 @@ h1,h2,h3{font-family:var(--font-heading);text-transform:none;margin:0}
     <div class="container">
       <div class="ops-media" data-reveal>
         <figure class="ops-figure duotone">
-          <img src="assets/chemist.png" alt="Chemist at work" width="612" height="408" loading="lazy" />
+          <img src="assets/chemist.png" alt="Chemist at work" width="612" height="408" />
         </figure>
       </div>
       <div class="ops-copy" data-reveal>
@@ -523,7 +526,11 @@ h1,h2,h3{font-family:var(--font-heading);text-transform:none;margin:0}
   } else {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        if (!e.isIntersecting) return;
+        var t = e.target, im = t.querySelector('img');
+        io.unobserve(t);
+        if (im && !im.complete) im.addEventListener('load', function () { t.classList.add('is-in'); }, { once: true });
+        else t.classList.add('is-in');
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
     items.forEach(function (el) { io.observe(el); });
@@ -542,10 +549,11 @@ h1,h2,h3{font-family:var(--font-heading);text-transform:none;margin:0}
       var r = aboutC.getBoundingClientRect(), stick = 124, n = mp.length, w = 3;
       var q = clamp((innerHeight * 0.9 - r.top) / (innerHeight * 0.9 - stick));
       var travel = Math.max(1, aboutC.offsetHeight - head.offsetHeight);
-      var p = clamp((stick - r.top) / (travel * 0.85));
+      var p = clamp((stick - r.top) / travel);
+      var wc = 8;
       var f = mp.map(function (el, i) {
         var d = clamp((q * (n + w) - i) / w);
-        var c = 1 - clamp((p * (n + w) - (n - 1 - i)) / w);
+        var c = 1 - clamp((p * (n + wc) - (n - 1 - i)) / wc);
         var v = Math.min(d, c);
         el.style.strokeDashoffset = (1 - v).toFixed(3);
         return v;
