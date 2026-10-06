@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Spector Pharma Inc. | Specialty Pharmaceutical Importation &amp; Distribution</title>
-<meta name="description" content="Spector Pharma Inc. is a Metro Manila-based importer and wholesale distributor of specialty medicines." />
+<title>Spector Pharma Inc. | Pharmaceutical Supply &amp; Distribution</title>
+<meta name="description" content="Spector Pharma Inc. is an FDA-licensed pharmaceutical supplier and distributor in Metro Manila, serving hospitals, pharmacies, and government procurement." />
 <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=2" />
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -260,7 +260,7 @@ textarea.input { min-height: 90px; resize: vertical; }
   --edge:clamp(20px,5vw,72px);--max:1240px;--ease:cubic-bezier(.2,.7,.2,1);
   --muted:rgba(23,42,77,.76);--line:rgba(23,42,77,.12);
 }
-html{scroll-behavior:smooth;scroll-padding-top:84px;overflow-x:clip}
+html{scroll-behavior:smooth;scroll-padding-top:84px;overflow-x:clip;overflow-anchor:none}
 body{margin:0;overflow-x:clip;max-width:100%;background:#fff;color:var(--color-text);font-family:var(--font-body);font-size:17px;line-height:1.6;text-wrap:pretty;-webkit-font-smoothing:antialiased}
 a{color:var(--color-accent-700)}
 a:hover{color:var(--color-accent-600)}
@@ -329,9 +329,6 @@ h1,h2,h3{font-family:var(--font-heading);text-transform:none;margin:0}
 .statement h3{font-size:clamp(24px,2.2vw,30px);line-height:1.15;font-weight:600;letter-spacing:-.01em;color:var(--color-accent-600);margin:0 0 18px}
 .statement p{font-family:var(--font-heading);font-size:clamp(22px,2.3vw,30px);line-height:1.36;font-weight:400;letter-spacing:-.01em;margin:0}
 .focus-list{list-style:none;margin:32px 0 0;padding:0}
-.focus-list li{display:flex;align-items:center;gap:16px;padding:18px 0;border-top:1px solid var(--line);font-family:var(--font-heading);font-weight:500;font-size:19px}
-.focus-list li:last-child{border-bottom:1px solid var(--line)}
-.focus-list li::before{content:"";flex:none;width:9px;height:9px;border:2px solid var(--color-accent);border-radius:50%}
 
 .ops{background:var(--color-accent-100);padding:clamp(80px,10vw,144px) 0}
 .ops .container{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px clamp(32px,6vw,96px);align-items:center}
@@ -365,16 +362,21 @@ h1,h2,h3{font-family:var(--font-heading);text-transform:none;margin:0}
 .js .ops-media .ops-figure img{opacity:.4;transition:opacity 1.4s var(--ease)}
 .js .ops-media.is-in .ops-figure img{opacity:1}
 .js .ops-media.is-in .ops-figure{clip-path:inset(0 0 0 0)}
-.js .focus-list li{opacity:0;transform:translateX(-14px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
-.js .is-in .focus-list li{opacity:1;transform:none}
-.js .is-in .focus-list li:nth-child(1){transition-delay:.25s}
-.js .is-in .focus-list li:nth-child(2){transition-delay:.35s}
-.js .is-in .focus-list li:nth-child(3){transition-delay:.45s}
-.js .is-in .focus-list li:nth-child(4){transition-delay:.55s}
 
 .molecule{display:block;width:100%;height:auto;max-height:calc(100vh - 300px);margin-top:56px;overflow:visible}
 .molecule path{fill:none;stroke:var(--color-accent);stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1}
 .molecule text{font-family:var(--font-heading);font-weight:500;font-size:15px;fill:var(--color-accent-700);text-anchor:middle;transition:opacity .35s var(--ease)}
+.focus-list li{display:grid;grid-template-rows:1fr;padding:18px 0;font-family:var(--font-heading);font-weight:500;font-size:19px;background:linear-gradient(var(--line),var(--line)) left top/100% 1px no-repeat}
+.focus-list li:last-child{background:linear-gradient(var(--line),var(--line)) left top/100% 1px no-repeat,linear-gradient(var(--line),var(--line)) left bottom/100% 1px no-repeat}
+.fl-text{display:block;min-height:0;overflow:hidden}
+.fl-row{display:flex;align-items:center;gap:16px;line-height:1.4}
+.fl-row::before{content:"";flex:none;width:9px;height:9px;border:2px solid var(--color-accent);border-radius:50%;box-sizing:border-box}
+.js .focus-list li{grid-template-rows:0fr;padding:0;background-size:0% 1px;--d:calc((var(--n) - 1 - var(--i)) * 60ms);transition:grid-template-rows .6s var(--ease) var(--d),padding .6s var(--ease) var(--d),background-size .5s var(--ease) var(--d)}
+.js .focus-list li:last-child{background-size:0% 1px,0% 1px}
+.js .focus-list .fl-row{opacity:0;transform:translateY(60%);transition:opacity .35s var(--ease) var(--d),transform .45s var(--ease) var(--d)}
+.js .focus-list.is-open li{grid-template-rows:1fr;padding:18px 0;background-size:100% 1px;--d:calc(var(--i) * 120ms);transition-duration:.8s,.8s,1s}
+.js .focus-list.is-open li:last-child{background-size:100% 1px,100% 1px}
+.js .focus-list.is-open .fl-row{opacity:1;transform:none;transition-duration:.6s,.8s;transition-delay:calc(var(--d) + 200ms)}
 @media (max-width:960px){
   .molecule{display:none}
   .hero{background:radial-gradient(60% 55% at 92% 48%,#1e3566 0%,var(--color-accent-900) 75%)}
@@ -399,11 +401,14 @@ h1,h2,h3{font-family:var(--font-heading);text-transform:none;margin:0}
   html{scroll-behavior:auto}
   .lab-pulse{animation:none;opacity:0}
   .js .hero h1 .line>span,.js .hero .lede,.js .hero .actions,.js .hero-mark{animation:none;opacity:1;transform:none}
-  .js [data-reveal],.js .focus-list li{opacity:1;transform:none;transition:none}
+  .js [data-reveal]{opacity:1;transform:none;transition:none}
+  .js .focus-list li{grid-template-rows:1fr;padding:18px 0;background-size:100% 1px;transition:none}
+  .js .focus-list li:last-child{background-size:100% 1px,100% 1px}
+  .js .focus-list .fl-row{opacity:1;transform:none;transition:none}
   .js .ops-media .ops-figure{clip-path:none;transition:none}
 }
 @media print{
-  .js [data-reveal],.js .focus-list li,.js .ops-media .ops-figure{opacity:1!important;transform:none!important;clip-path:none!important}
+  .js [data-reveal],.js .focus-list .fl-row,.js .ops-media .ops-figure{opacity:1!important;transform:none!important;clip-path:none!important}
   .site-nav{position:static}
 }
 </style>
@@ -425,8 +430,8 @@ h1,h2,h3{font-family:var(--font-heading);text-transform:none;margin:0}
   <section class="hero">
     <div class="container">
       <div class="hero-copy">
-        <h1><span class="line"><span>Specialty pharmaceutical</span></span><span class="line"><span>importation &amp; distribution</span></span></h1>
-        <p class="lede">Spector Pharma Inc. is a Metro Manila-based importer and wholesale distributor of specialty medicines, supplying the Philippine market through licensed, fully compliant channels.</p>
+        <h1><span class="line"><span>Pharmaceutical supply</span></span><span class="line"><span>&amp; distribution</span></span></h1>
+        <p class="lede">Spector Pharma Inc. is an FDA-licensed pharmaceutical supplier and distributor in Metro Manila, serving hospitals, pharmacies, and government procurement across the Philippines.</p>
         <div class="actions">
           <a class="btn btn-primary" href="#inquiries">Send an inquiry <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
           <a class="arrow-link" href="#company">Company profile <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
@@ -451,16 +456,16 @@ h1,h2,h3{font-family:var(--font-heading);text-transform:none;margin:0}
         </div>
         <div class="statement" data-reveal>
           <h3>Mission</h3>
-          <p>To widen access to quality, life-changing treatments by partnering with trusted manufacturers and supporting the doctors, pharmacies, and hospitals who care for patients every day.</p>
+          <p>To widen access to quality, life-changing treatments by working alongside trusted importers and manufacturers, and reliably supplying the hospitals, pharmacies, and public health programs that care for patients every day.</p>
         </div>
         <div class="statement" data-reveal>
           <h3>Product range</h3>
-          <p>Specialty categories that demand careful sourcing, secure storage, and disciplined handling.</p>
-          <ul class="focus-list">
-            <li>Oncology</li>
-            <li>Cardiovascular</li>
-            <li>Central nervous system therapies</li>
-            <li>And a broad range of other therapeutic areas</li>
+          <p>Supplied with secure storage, careful handling, and complete documentation for every order.</p>
+          <ul class="focus-list" style="--n:4">
+            <li style="--i:0"><span class="fl-text"><span class="fl-row">Oncology</span></span></li>
+            <li style="--i:1"><span class="fl-text"><span class="fl-row">Cardiovascular</span></span></li>
+            <li style="--i:2"><span class="fl-text"><span class="fl-row">Central nervous system therapies</span></span></li>
+            <li style="--i:3"><span class="fl-text"><span class="fl-row">And a broad range of other therapeutic areas</span></span></li>
           </ul>
         </div>
       </div>
@@ -476,7 +481,7 @@ h1,h2,h3{font-family:var(--font-heading);text-transform:none;margin:0}
       </div>
       <div class="ops-copy" data-reveal>
         <h2>Built for controlled handling</h2>
-        <p>Operations run from a secured facility with 24/7 building security, dedicated loading and unloading zone, and secured storage for controlled products.</p>
+        <p>Operations run from a secured facility with 24/7 building security, dedicated loading and unloading zones, and secured storage for controlled products.</p>
       </div>
     </div>
   </section>
@@ -548,9 +553,10 @@ h1,h2,h3{font-family:var(--font-heading);text-transform:none;margin:0}
       if (!mol.getClientRects().length) return;
       var r = aboutC.getBoundingClientRect(), stick = 124, n = mp.length, w = 3;
       var q = clamp((innerHeight * 0.9 - r.top) / (innerHeight * 0.9 - stick));
-      var travel = Math.max(1, aboutC.offsetHeight - head.offsetHeight);
-      var p = clamp((stick - r.top) / travel);
-      var wc = 8;
+      var flEl = aboutC.querySelector('.focus-list');
+      var travel = Math.max(1, aboutC.offsetHeight - (flEl ? flEl.offsetHeight : 0) - head.offsetHeight);
+      var p = clamp((stick - r.top) / (travel * 5.28));
+      var wc = 48;
       var f = mp.map(function (el, i) {
         var d = clamp((q * (n + w) - i) / w);
         var c = 1 - clamp((p * (n + wc) - (n - 1 - i)) / wc);
@@ -564,6 +570,21 @@ h1,h2,h3{font-family:var(--font-heading);text-transform:none;margin:0}
     molFrame();
     addEventListener('scroll', molQueue, { passive: true });
     addEventListener('resize', molQueue);
+  }
+  var fl = document.querySelector('.focus-list');
+  if (fl) {
+    if (reduce) fl.classList.add('is-open');
+    else {
+      var flBox = fl.closest('.statement'), flRaf = 0;
+      var flCheck = function () {
+        flRaf = 0;
+        var r = flBox.getBoundingClientRect(), vh = innerHeight;
+        fl.classList.toggle('is-open', r.top < vh * 0.5 && r.bottom > vh * 0.22);
+      };
+      addEventListener('scroll', function () { if (!flRaf) flRaf = requestAnimationFrame(flCheck); }, { passive: true });
+      addEventListener('resize', flCheck);
+      flCheck();
+    }
   }
   if (reduce) return;
 
