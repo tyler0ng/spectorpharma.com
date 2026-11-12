@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 124" width="512" height="512">
+  <title>Spector Pharma app icon</title>
+  <rect x="0" y="0" width="124" height="124" rx="26" fill="#2E63C4"/>
+  <g transform="translate(62,62) scale(0.72)" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round">
+    <path d="M-51.2,-9.0 A52 52 0 0 1 51.2,9.0 A52 52 0 0 1 -51.2,9.0"/>
+    <path d="M-35.5,-6.3 A36 36 0 0 1 -6.3,-35.5"/>
+    <path d="M6.3,-35.5 A36 36 0 1 1 -35.5,6.3"/>
+    <path d="M-17.3,-10 A20 20 0 1 1 -17.3,10"/>
+    <path d="M-64,0 L-26,0"/>
+  </g>
+</svg>
